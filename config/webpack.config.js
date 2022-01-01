@@ -27,6 +27,7 @@ const ForkTsCheckerWebpackPlugin =
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -591,6 +592,16 @@ module.exports = function (webpackEnv) {
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358
+      new StylelintPlugin({
+        configFile: path.resolve(__dirname, './.stylelintrc.js'),
+        extensions: ['less'],
+        files: 'src/**/*.less',
+        fix: true,
+        customSyntax: 'postcss-less',
+        lintDirtyModulesOnly: true,
+        threads: true,
+        exclude: ['node_modules', 'src/styles/antd-overrides.less', 'config']
+      }),
       isEnvProduction &&
         shouldInlineRuntimeChunk &&
         new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime-.+[.]js/]),
