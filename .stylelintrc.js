@@ -1,4 +1,3 @@
-// .stylelintrc.js
 module.exports = {
   processors: [],
   plugins: ['stylelint-order'],
