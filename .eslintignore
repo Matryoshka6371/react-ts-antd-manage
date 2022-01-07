@@ -5,3 +5,4 @@ craco.config.js
 prettier.config.js
 .stylelintrc.js
 .stylelintignore
+tailwind.config.js
