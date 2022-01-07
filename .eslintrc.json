@@ -22,6 +22,10 @@
     // Your global variables (setting to false means it's not allowed to be reassigned)
     //
     // myGlobal: false
+    "TSX": true,
+    "React": true,
+    "NodeJS": true,
+    "Promise": true
   },
   "rules": {
     // 自定义您的规则

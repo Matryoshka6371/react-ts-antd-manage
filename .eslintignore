@@ -1,8 +1,2 @@
-build/
-dist/
-
-craco.config.js
-prettier.config.js
-.stylelintrc.js
-.stylelintignore
-tailwind.config.js
+node_modules
+config-overrides.js
